@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.mminhlequang.dreamartai",
+      "sha256_cert_fingerprints": [
+        "7B:4B:0A:80:03:D7:0E:E2:0B:73:B0:36:4B:59:5E:CB:5A:F7:8E:CD:E1:19:C9:E5:08:1B:4D:91:7E:8B:D7:27"
+      ]
+    }
+  }
+ 
+]

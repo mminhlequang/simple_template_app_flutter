@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "781794469901",
+    "project_id": "mminhlequang-apps",
+    "storage_bucket": "mminhlequang-apps.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:781794469901:android:0cdd4350efdbd740e44d44",
+        "android_client_info": {
+          "package_name": "com.app.boilerplate"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYTajg6dojVzF8tEdeuUt69BA0WR9xaX8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:781794469901:android:03a7e0977baafcb1e44d44",
+        "android_client_info": {
+          "package_name": "com.mminhlequang.dreamartai2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYTajg6dojVzF8tEdeuUt69BA0WR9xaX8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      },
+      "admob_app_id": "ca-app-pub-6190294097703418~4479145294"
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,207 @@
+[
+  {
+    "name": "anime",
+    "modelCount": 56467,
+    "link": "https://civitai.com/api/v1/models?tag=anime"
+  },
+  {
+    "name": "woman",
+    "modelCount": 54133,
+    "link": "https://civitai.com/api/v1/models?tag=woman"
+  },
+  {
+    "name": "girls",
+    "modelCount": 29415,
+    "link": "https://civitai.com/api/v1/models?tag=girls"
+  },
+  {
+    "name": "celebrity",
+    "modelCount": 24613,
+    "link": "https://civitai.com/api/v1/models?tag=celebrity"
+  },
+  {
+    "name": "sexy",
+    "modelCount": 19670,
+    "link": "https://civitai.com/api/v1/models?tag=sexy"
+  },
+  {
+    "name": "photorealistic",
+    "modelCount": 16306,
+    "link": "https://civitai.com/api/v1/models?tag=photorealistic"
+  }, 
+  {
+    "name": "realistic",
+    "modelCount": 13059,
+    "link": "https://civitai.com/api/v1/models?tag=realistic"
+  },
+  {
+    "name": "video game",
+    "modelCount": 7715,
+    "link": "https://civitai.com/api/v1/models?tag=video game"
+  },
+  {
+    "name": "clothing",
+    "modelCount": 7627,
+    "link": "https://civitai.com/api/v1/models?tag=clothing"
+  },
+  {
+    "name": "actress",
+    "modelCount": 4702,
+    "link": "https://civitai.com/api/v1/models?tag=actress"
+  },
+  {
+    "name": "cartoon",
+    "modelCount": 3462,
+    "link": "https://civitai.com/api/v1/models?tag=cartoon"
+  },
+  {
+    "name": "game",
+    "modelCount": 3152,
+    "link": "https://civitai.com/api/v1/models?tag=game"
+  },
+  {
+    "name": "fantasy",
+    "modelCount": 2745,
+    "link": "https://civitai.com/api/v1/models?tag=fantasy"
+  },
+  {
+    "name": "illustration",
+    "modelCount": 2185,
+    "link": "https://civitai.com/api/v1/models?tag=illustration"
+  },
+  {
+    "name": "cute",
+    "modelCount": 2013,
+    "link": "https://civitai.com/api/v1/models?tag=cute"
+  },
+  {
+    "name": "poses",
+    "modelCount": 1989,
+    "link": "https://civitai.com/api/v1/models?tag=poses"
+  },
+  {
+    "name": "art",
+    "modelCount": 1647,
+    "link": "https://civitai.com/api/v1/models?tag=art"
+  },
+  {
+    "name": "men",
+    "modelCount": 1554,
+    "link": "https://civitai.com/api/v1/models?tag=men"
+  },
+  {
+    "name": "manga",
+    "modelCount": 1536,
+    "link": "https://civitai.com/api/v1/models?tag=manga"
+  },
+  {
+    "name": "pokemon",
+    "modelCount": 1458,
+    "link": "https://civitai.com/api/v1/models?tag=pokemon"
+  },
+  {
+    "name": "beautiful",
+    "modelCount": 1423,
+    "link": "https://civitai.com/api/v1/models?tag=beautiful"
+  }, 
+  {
+    "name": "buildings",
+    "modelCount": 1103,
+    "link": "https://civitai.com/api/v1/models?tag=buildings"
+  },
+  {
+    "name": "kpop",
+    "modelCount": 1080,
+    "link": "https://civitai.com/api/v1/models?tag=kpop"
+  },
+  {
+    "name": "artist",
+    "modelCount": 1077,
+    "link": "https://civitai.com/api/v1/models?tag=artist"
+  },
+  {
+    "name": "breasts",
+    "modelCount": 1076,
+    "link": "https://civitai.com/api/v1/models?tag=breasts"
+  },
+  {
+    "name": "dress",
+    "modelCount": 1031,
+    "link": "https://civitai.com/api/v1/models?tag=dress"
+  },
+  {
+    "name": "vehicle",
+    "modelCount": 1018,
+    "link": "https://civitai.com/api/v1/models?tag=vehicle"
+  },
+  {
+    "name": "celeb",
+    "modelCount": 1017,
+    "link": "https://civitai.com/api/v1/models?tag=celeb"
+  },
+  {
+    "name": "singer",
+    "modelCount": 967,
+    "link": "https://civitai.com/api/v1/models?tag=singer"
+  },
+  {
+    "name": "photography",
+    "modelCount": 946,
+    "link": "https://civitai.com/api/v1/models?tag=photography"
+  },
+  {
+    "name": "asian",
+    "modelCount": 916,
+    "link": "https://civitai.com/api/v1/models?tag=asian"
+  },
+  {
+    "name": "anime girl",
+    "modelCount": 851,
+    "link": "https://civitai.com/api/v1/models?tag=anime girl"
+  },
+  {
+    "name": "horror",
+    "modelCount": 775,
+    "link": "https://civitai.com/api/v1/models?tag=horror"
+  },
+  {
+    "name": "photorealism",
+    "modelCount": 743,
+    "link": "https://civitai.com/api/v1/models?tag=photorealism"
+  },
+  {
+    "name": "animals",
+    "modelCount": 731,
+    "link": "https://civitai.com/api/v1/models?tag=animals"
+  },
+  {
+    "name": "movie",
+    "modelCount": 671,
+    "link": "https://civitai.com/api/v1/models?tag=movie"
+  },
+  {
+    "name": "realism",
+    "modelCount": 671,
+    "link": "https://civitai.com/api/v1/models?tag=realism"
+  },
+  {
+    "name": "scenery",
+    "modelCount": 664,
+    "link": "https://civitai.com/api/v1/models?tag=scenery"
+  },
+  {
+    "name": "arknights",
+    "modelCount": 655,
+    "link": "https://civitai.com/api/v1/models?tag=arknights"
+  },
+  {
+    "name": "genshin impact",
+    "modelCount": 654,
+    "link": "https://civitai.com/api/v1/models?tag=genshin impact"
+  },
+  {
+    "name": "cosplay",
+    "modelCount": 610,
+    "link": "https://civitai.com/api/v1/models?tag=cosplay"
+  }
+]

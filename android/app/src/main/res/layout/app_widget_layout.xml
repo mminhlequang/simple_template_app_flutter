@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+     android:id="@+id/widget_container">
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="8dp">
+            <!-- Thêm padding -->
+            <!-- Thêm LinearLayout cha cho 2 ImageView -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                 >
+                <!-- Thêm margin -->
+                <!-- Thêm 2 ImageView -->
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/widget_img1"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="16dp" 
+                    android:layout_marginBottom="12dp"/>
+                <!-- Thêm margin dưới -->
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/widget_img2"/>
+            </LinearLayout>
+            <!-- Thêm LinearLayout cha cho 2 ImageView -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+               >
+                <!-- Thêm margin -->
+                <!-- Thêm 2 ImageView -->
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/widget_img3"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="16dp" 
+                    android:layout_marginBottom="12dp"/>
+                <!-- Thêm margin dưới -->
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/widget_img4"/>
+            </LinearLayout>
+            <!-- Thêm LinearLayout cha cho 2 ImageView -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+                <!-- Thêm margin -->
+                <!-- Thêm 2 ImageView -->
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/widget_img5"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginBottom="12dp"/>
+                <!-- Thêm margin dưới -->
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/widget_img6"/>
+            </LinearLayout>
+            <!-- Thêm LinearLayout cha cho 2 ImageView -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+                <!-- Thêm margin -->
+                <!-- Thêm 2 ImageView -->
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/widget_img7"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginBottom="12dp"/>
+                <!-- Thêm margin dưới -->
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/widget_img8"/>
+            </LinearLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+</LinearLayout>

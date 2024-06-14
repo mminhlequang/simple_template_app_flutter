@@ -1,0 +1,114 @@
+name: app
+description: DreamArt Collection 
+
+version: 1.1.5+21
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+ 
+  cupertino_icons: ^1.0.8
+  equatable: ^2.0.5
+  bloc: ^8.1.4
+  flutter_bloc: ^8.1.6
+  bloc_concurrency: ^0.2.5
+  get_it: ^7.7.0
+  easy_localization: ^3.0.7
+  go_router: ^14.2.0
+
+  dio: ^5.4.3+1
+  jwt_decode: ^0.3.1
+  connectivity_plus: ^6.0.3
+  hive: ^2.2.3
+  path_provider: ^2.1.3
+  cached_network_image: ^3.3.1
+  flutter_svg: ^2.0.10+1 
+  modal_bottom_sheet: ^3.0.0
+  google_fonts: ^6.2.1
+  file: ^7.0.0
+  flutter_portal: ^1.1.4
+  flutter_native_splash: ^2.4.0
+  intl: ^0.18.1
+  gap: ^3.0.1 
+  sentry_flutter: ^8.2.0
+  flutter_staggered_grid_view: ^0.7.0
+  firebase_analytics: ^11.0.1
+  firebase_messaging: ^15.0.1
+  firebase_core: ^3.1.0
+  carousel_slider: ^4.2.1
+  share_plus: ^9.0.0
+  image_gallery_saver: ^2.0.3
+  file_saver: ^0.2.13
+  async_wallpaper: ^2.0.3
+  photo_view: ^0.15.0
+  google_mobile_ads: ^5.1.0
+  app_tracking_transparency: ^2.0.5
+  in_app_review: ^2.0.9
+  url_launcher: ^6.3.0
+  app_links: ^6.1.1
+  flutter_app_badger: ^1.5.0
+  home_widget: ^0.6.0
+  blurhash: ^1.1.1
+  flutter_switch: ^0.3.2
+
+  internal_core: 
+    path: internal_libs/core
+
+dependency_overrides:
+  http: ^1.1.0
+  intl: ^0.19.0
+
+dev_dependencies:
+  flutter_launcher_icons: ^0.13.1
+  flutter_lints: ^4.0.0
+  msix: ^3.16.7
+
+msix_config:
+  display_name: DreamArtCollection
+  publisher_display_name: mminhlequang
+  identity_name: com.mminhlequang.dreamartai
+  msix_version: 1.1.4.20
+  logo_path: D:\Documents\Workspace\mminhlequang\dream_art_ai_flutter\assets\images\logo_macos.png
+  capabilities: internetClient
+
+flutter_icons:
+  android: "ic_launcher"
+  ios: true
+  image_path: "assets/images/logo.jpg"
+  macos:
+    generate: true
+    image_path: "assets/images/logo_macos.png"
+  windows:
+    generate: true
+    image_path: "assets/images/logo_macos.png"
+    icon_size: 48 # min:48, max:256, default: 48
+
+jsonToDart:
+  typeChecking: true  #default: undefined (Select from picker)
+  nullValueDataType: dynamic #default: dynamic
+  nullSafety: true #default: false
+  copyWithMethod: false #default: false
+  mergeArrayApproach: false #default: true
+
+flutter_native_splash:
+  color: "#FFF9FC"
+  image: assets/images/logo.png
+
+  android_12:
+    image: assets/images/logo.png
+    icon_background_color: "#FFF9FC"
+
+  web: false
+
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/l10n/
+    - assets/jsons/
+    - assets/images/svg/ 
