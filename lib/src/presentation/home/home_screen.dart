@@ -4,12 +4,9 @@ import 'dart:io';
 import 'package:app/src/constants/constants.dart';
 import 'package:app/src/presentation/home/widgets/best_collection.dart';
 import 'package:app/src/utils/utils.dart';
-import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_app_badger/flutter_app_badger.dart';
 import 'package:gap/gap.dart';
 import 'package:internal_core/internal_core.dart';
 import 'package:flutter/material.dart';
@@ -39,64 +36,37 @@ class _HomeScreenState extends State<HomeScreen> {
     favoriteCubit.fetchFavorites();
     favoriteModelCubit.fetchFavorites();
     modelCubit.fetchModels(refresh: true);
-    AppUniLinks.init();
-    if (!Platform.isWindows) {
-      WidgetsFlutterBinding.ensureInitialized().addPostFrameCallback((_) async {
-        await FirebaseMessaging.instance.requestPermission();
-        if (Platform.isIOS) {
-          Timer(Durations.long1, () {
-            _initAppTrackingTransparency();
-          });
-        }
-      });
-      FlutterAppBadger.removeBadge();
-    }
+    
   }
+ 
 
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> _initAppTrackingTransparency() async {
-    final TrackingStatus status =
-        await AppTrackingTransparency.trackingAuthorizationStatus;
-
-    // If the system can show an authorization request dialog
-    if (status == TrackingStatus.notDetermined) {
-      // Show a custom explainer dialog before the system dialog
-      await showCustomTrackingDialog();
-      // Wait for dialog popping animation
-      await Future.delayed(const Duration(milliseconds: 200));
-      // Request system's tracking authorization dialog
-
-      await AppTrackingTransparency.requestTrackingAuthorization();
-    }
-  }
-
-  Future<void> showCustomTrackingDialog() async =>
-      await showCupertinoDialog<void>(
-        context: appContext,
-        builder: (context) => CupertinoAlertDialog(
-          title: Text(
-            'Privacy and data security\n'.tr(),
-            style: w500TextStyle(fontSize: 16.sw, height: 1.4),
-          ),
-          content: Text(
-            'We care about your privacy and data security. We keep this app free by showing ads. \nCan we continue to use your data to tailor ads for you?\n\nYou can change your choice anytime in the app settings. \nOur partners will collect data and use a unique identifier on your device to show you ads.'
-                .tr(),
-            style: w400TextStyle(
-                fontSize: 15.sw,
-                height: 1.4,
-                color: appColorText.withOpacity(.8)),
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: Text(
-                'Continue'.tr(),
-                style: w500TextStyle(fontSize: 16.sw, height: 1.4),
-              ),
-            ),
-          ],
-        ),
-      );
+  // Future<void> showCustomTrackingDialog() async =>
+  //     await showCupertinoDialog<void>(
+  //       context: appContext,
+  //       builder: (context) => CupertinoAlertDialog(
+  //         title: Text(
+  //           'Privacy and data security\n'.tr(),
+  //           style: w500TextStyle(fontSize: 16.sw, height: 1.4),
+  //         ),
+  //         content: Text(
+  //           'We care about your privacy and data security. We keep this app free by showing ads. \nCan we continue to use your data to tailor ads for you?\n\nYou can change your choice anytime in the app settings. \nOur partners will collect data and use a unique identifier on your device to show you ads.'
+  //               .tr(),
+  //           style: w400TextStyle(
+  //               fontSize: 15.sw,
+  //               height: 1.4,
+  //               color: appColorText.withOpacity(.8)),
+  //         ),
+  //         actions: [
+  //           TextButton(
+  //             onPressed: () => Navigator.pop(context),
+  //             child: Text(
+  //               'Continue'.tr(),
+  //               style: w500TextStyle(fontSize: 16.sw, height: 1.4),
+  //             ),
+  //           ),
+  //         ],
+  //       ),
+  //     );
 
   @override
   Widget build(BuildContext context) {

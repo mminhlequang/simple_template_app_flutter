@@ -120,7 +120,6 @@ class _WidgetImageItemState extends State<WidgetImageItem> {
                       WidgetFloatIconButton(
                         onTap: () {
                           appHaptic();
-                          saveNetworkImage(widget.m.url ?? "");
                         },
                         icon: 'cloud-download',
                         color: Colors.white,

@@ -1,19 +1,15 @@
 import 'dart:io';
 
 import 'package:app/src/constants/constants.dart';
-import 'package:file_saver/file_saver.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:internal_core/internal_core.dart';
 import 'package:app/main.dart';
-import 'package:async_wallpaper/async_wallpaper.dart';
 import 'package:dio/dio.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
-import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:go_router/go_router.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:flutter/material.dart';
-import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:path/path.dart' as path;
 
 import 'utils.dart';
@@ -57,64 +53,7 @@ bool get isMobile => Platform.isIOS || Platform.isAndroid;
 String stringShareImage(url) =>
     '"DreamArt Collection"\n${"I want share to you this image:".tr()} $url\n${"You can view more at:".tr()} ${Platform.isAndroid ? "https://play.google.com/store/apps/details?id=com.mminhlequang.dreamartai2" : "https://apps.apple.com/us/app/dreamart-ai/id6480363700?platform=iphone"}';
 
-setWallpaper(url, int wallpaperLocation) async {
-  appDebugPrint('[setWallpaper] url=$url');
-  appHaptic();
-  String result;
-  loadingProgressIndicator.value = true;
-  // Platform messages may fail, so we use a try/catch PlatformException.
-  try {
-    result = await AsyncWallpaper.setWallpaper(
-      url: url,
-      wallpaperLocation: wallpaperLocation,
-      goToHome: true,
-      toastDetails: ToastDetails.success(),
-      errorToastDetails: ToastDetails.error(),
-    )
-        ? 'Wallpaper set'.tr()
-        : 'Failed to get wallpaper.'.tr();
-  } on PlatformException {
-    result = 'Failed to get wallpaper.';
-  }
-  loadingProgressIndicator.value = false;
-  appDebugPrint('[setWallpaper] $result');
-  showInterstitialAd();
-}
-
-saveNetworkImage(String url) async {
-  loadingProgressIndicator.value = true;
-  appDebugPrint('[saveNetworkImage] $url');
-
-  if (isMobile) {
-    var response = await Dio()
-        .get(url, options: Options(responseType: ResponseType.bytes));
-
-    //{"isSuccess":true, "filePath":String?}
-    final result = await ImageGallerySaver.saveImage(
-      Uint8List.fromList(response.data),
-      quality: 100,
-      name: path.basenameWithoutExtension(url),
-    );
-
-    loadingProgressIndicator.value = false;
-    appDebugPrint('[saveNetworkImage] ${result.runtimeType} result=$result');
-    showSnackBar(
-        msg: result['isSuccess'] == true
-            ? "Save image succusfully!".tr()
-            : "Failed to save image!".tr());
-    showInterstitialAd();
-  } else {
-    String result = await FileSaver.instance.saveFile(
-      name: path.basenameWithoutExtension(url),
-      link: LinkDetails(link: url),
-      ext: url.split(".").last,
-    );
-
-    loadingProgressIndicator.value = false;
-    appDebugPrint('[saveNetworkImage] ${result.runtimeType} result=$result');
-    showSnackBar(msg: "Save image succusfully!".tr());
-  }
-}
+ 
 
 onOpenImage({
   bool isExploreList = false,
@@ -205,7 +144,5 @@ showSnackBar({context, required msg, Duration? duration}) {
 }
 
 appSentryCaptureMessage({required where, required msg}) {
-  Sentry.captureMessage(
-    '[$where] $msg',
-  );
+   
 }
