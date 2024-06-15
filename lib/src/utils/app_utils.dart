@@ -62,7 +62,6 @@ onOpenImage({
   required index,
 }) async {
   appHaptic();
-  await showInterstitialAd();
   appContext.push(
     '/image_view',
     extra: {

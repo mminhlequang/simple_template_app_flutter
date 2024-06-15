@@ -156,7 +156,6 @@ class _WidgetImage extends StatelessWidget {
           if (r != true) return;
         }
         modelCubit.selectModel(m);
-        await showInterstitialAd();
         context.push('/image_by_model');
       },
       child: WidgetAppImage(

@@ -10,7 +10,6 @@ import 'package:app/src/presentation/home/widgets/widget_image_item.dart';
 import 'package:app/src/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class WidgetImagesByModel extends StatefulWidget {
   const WidgetImagesByModel({super.key});
@@ -20,38 +19,6 @@ class WidgetImagesByModel extends StatefulWidget {
 }
 
 class _WidgetImagesByModelState extends State<WidgetImagesByModel> {
-  BannerAd? _bannerAd;
-  @override
-  void initState() {
-    super.initState();
-    if (isAdsEnable) {
-      BannerAd(
-        adUnitId: adUnitIdBanner,
-        request: const AdRequest(),
-        size: AdSize.fullBanner,
-        listener: BannerAdListener(
-          onAdLoaded: (ad) {
-            if (mounted) {
-              setState(() {
-                _bannerAd = ad as BannerAd;
-              });
-            }
-          },
-          onAdFailedToLoad: (ad, err) {
-            appDebugPrint('Failed to load a banner ad: ${err.message}');
-            ad.dispose();
-          },
-        ),
-      ).load();
-    }
-  }
-
-  @override
-  void dispose() {
-    _bannerAd?.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ModelCubit, ModelState>(
@@ -229,15 +196,6 @@ class _WidgetImagesByModelState extends State<WidgetImagesByModel> {
                     ],
                   ),
                 ),
-                if (_bannerAd != null)
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: SizedBox(
-                      width: _bannerAd!.size.width.toDouble(),
-                      height: _bannerAd!.size.height.toDouble(),
-                      child: AdWidget(ad: _bannerAd!),
-                    ),
-                  ),
               ],
             ),
           );

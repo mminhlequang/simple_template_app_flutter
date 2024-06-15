@@ -1,4 +1,3 @@
-export 'app_ads.dart';
 export 'app_easy_localization.dart';
 export 'app_get.dart';
 export 'app_get_it.dart';

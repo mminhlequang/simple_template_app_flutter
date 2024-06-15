@@ -1,5 +1,4 @@
 import 'package:app/src/presentation/widgets/widget_app_switcher.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:internal_core/internal_core.dart';
 import 'package:app/src/constants/constants.dart';
 import 'package:app/src/utils/utils.dart';
@@ -8,7 +7,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
-import 'package:in_app_review/in_app_review.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 import '../home/cubit/model_cubit.dart';
@@ -22,39 +20,7 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  RewardedAd? _rewardedAd;
-
-  final InAppReview inAppReview = InAppReview.instance;
-  @override
-  void initState() {
-    super.initState();
-    if (isAdsEnable) {
-      RewardedAd.load(
-        adUnitId: adUnitIdRewardedAd,
-        request: const AdRequest(),
-        rewardedAdLoadCallback: RewardedAdLoadCallback(
-          // Called when an ad is successfully received.
-          onAdLoaded: (ad) {
-            debugPrint('$ad loaded.');
-            // Keep a reference to the ad so you can show it later.
-            _rewardedAd = ad;
-            if (mounted) setState(() {});
-          },
-          // Called when an ad request failed.
-          onAdFailedToLoad: (LoadAdError error) {
-            debugPrint('RewardedAd failed to load: $error');
-          },
-        ),
-      );
-    }
-  }
-
-  @override
-  void dispose() {
-    _rewardedAd?.dispose();
-    super.dispose();
-  }
-
+    
   @override
   Widget build(BuildContext context) {
     return ColoredBox(
@@ -237,45 +203,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           asset: 'eye-off',
                           title: "Manage hidden content".tr(),
                         ),
-                        if (_rewardedAd != null)
-                          _WidgetButton(
-                            onTap: () {
-                              appHaptic();
-                              _rewardedAd?.show(
-                                onUserEarnedReward: (ad, reward) async {
-                                  await showCupertinoDialog<void>(
-                                    context: appContext,
-                                    builder: (context) => CupertinoAlertDialog(
-                                      title: Text(
-                                        'We really appreciate your kindness'
-                                            .tr(),
-                                        style: w500TextStyle(
-                                            fontSize: 16.sw, height: 1.4),
-                                      ),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(context),
-                                          child: Text(
-                                            'Okay'.tr(),
-                                            style: w500TextStyle(
-                                                fontSize: 16.sw, height: 1.4),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  );
-                                  if (mounted) {
-                                    setState(() {
-                                      _rewardedAd = null;
-                                    });
-                                  }
-                                },
-                              );
-                            },
-                            asset: 'gift',
-                            title: "Support probject by watch an ads".tr(),
-                          ),
+                        
                       ],
                     ),
                   ),
@@ -287,20 +215,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                   Column(
                     children: [
-                      FutureBuilder<bool>(
-                        future: inAppReview.isAvailable(),
-                        builder: (context, snapshot) {
-                          if (snapshot.data != true) return const SizedBox();
-                          return _WidgetButton(
-                            asset: 'external-link',
-                            title: "Rate app on store".tr(),
-                            onTap: () {
-                              appHaptic();
-                              inAppReview.requestReview();
-                            },
-                          );
-                        },
-                      ),
+                       
                       _WidgetButton(
                         asset: 'external-link',
                         title: "Privacy terms".tr(),

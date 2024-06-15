@@ -23,7 +23,6 @@ void main() async {
       SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]),
     AppPrefs.instance.initialize(),
     initEasyLocalization(),
-    adsInitialize(),
   ]);
   bloc.Bloc.observer = AppBlocObserver();
 
