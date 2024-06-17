@@ -51,9 +51,7 @@ Future<bool?> nsfwWarningDialog() async => await showCupertinoDialog<bool>(
 bool get isMobile => Platform.isIOS || Platform.isAndroid;
 
 String stringShareImage(url) =>
-    '"DreamArt Collection"\n${"I want share to you this image:".tr()} $url\n${"You can view more at:".tr()} ${Platform.isAndroid ? "https://play.google.com/store/apps/details?id=com.mminhlequang.dreamartai2" : "https://apps.apple.com/us/app/dreamart-ai/id6480363700?platform=iphone"}';
-
- 
+    '"SKidEnglish"\n${"I want share to you this image:".tr()} $url\n${"You can view more at:".tr()} ${Platform.isAndroid ? "https://play.google.com/store/apps/details?id=com.app.boilerplate" : "https://apps.apple.com/us/app/dreamart-ai/id6480363700?platform=iphone"}';
 
 onOpenImage({
   bool isExploreList = false,
@@ -142,6 +140,4 @@ showSnackBar({context, required msg, Duration? duration}) {
   );
 }
 
-appSentryCaptureMessage({required where, required msg}) {
-   
-}
+appSentryCaptureMessage({required where, required msg}) {}

@@ -31,7 +31,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace = "com.mminhlequang.dreamartai2"
+    namespace = "com.app.boilerplate"
     compileSdkVersion 34
 
     sourceSets {
@@ -39,7 +39,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.mminhlequang.dreamartai2"
+        applicationId "com.app.boilerplate"
         minSdkVersion 23
         targetSdkVersion 34
         versionCode flutterVersionCode.toInteger()

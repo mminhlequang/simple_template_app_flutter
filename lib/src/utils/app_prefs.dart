@@ -157,52 +157,9 @@ class AppPrefs extends AppPrefsBase {
     } else {
       _boxData.delete('favoriteImages');
     }
-  }
+  } 
 
-  List<CivitaiImage>? get reportedImages {
-    final objectString = _boxData.get('reportedImages');
-    if (objectString != null) {
-      return (jsonDecode(objectString) as List)
-          .map((e) => CivitaiImage.fromJson(e))
-          .toList();
-    }
-    return [];
-  }
+  // set enablePormpt(bool value) => _boxData.put('enablePormpt', value);
 
-  set reportedImages(List<CivitaiImage>? value) {
-    if (value != null) {
-      final string = json.encode(value.map((e) => e.toJson()).toList());
-      _boxData.put('reportedImages', string);
-    } else {
-      _boxData.delete('reportedImages');
-    }
-  }
-
-  set period(String? value) => _boxData.put('period', value);
-
-  String? get period => _boxData.get("period") ?? "Week";
-
-  set nsfw(String value) => _boxData.put('nsfw', value);
-
-  String get nsfw => _boxData.get('nsfw') ?? "None";
-
-  set tag(String? value) => _boxData.put('tag', value);
-
-  String? get tag => _boxData.get('tag');
-
-  set enableNsfw(bool value) => _boxData.put('enableNsfw', value);
-
-  bool get enableNsfw => _boxData.get('enableNsfw') ?? false;
-
-  set enablePormpt(bool value) => _boxData.put('enablePormpt', value);
-
-  bool get enablePormpt => _boxData.get('enablePormpt') ?? true;
-
-  set blurNsfwImage(bool value) => _boxData.put('blurNsfwImage', value);
-
-  bool get blurNsfwImage => _boxData.get('blurNsfwImage') ?? true;
-
-  set isGridView(bool value) => _boxData.put('isGridView', value);
-
-  bool get isGridView => _boxData.get('isGridView') ?? true;
+  // bool get enablePormpt => _boxData.get('enablePormpt') ?? true; 
 }

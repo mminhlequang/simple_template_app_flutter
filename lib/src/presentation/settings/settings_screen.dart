@@ -6,10 +6,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-import '../home/cubit/model_cubit.dart';
 import 'widgets/widget_languages_sheet.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -20,7 +18,6 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-    
   @override
   Widget build(BuildContext context) {
     return ColoredBox(
@@ -34,28 +31,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
             child: Row(
               children: [
                 Expanded(
-                  child: GestureDetector(
-                    onDoubleTap: () {
-                      appHaptic();
-                      AppPrefs.instance.enableNsfw =
-                          !AppPrefs.instance.enableNsfw;
-                      WidgetsFlutterBinding.ensureInitialized()
-                          .performReassemble();
-                    },
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Settings'.tr(),
-                          style: w600TextStyle(fontSize: 18.sw),
-                        ),
-                        Gap(2.sw),
-                        Text(
-                          'DreamArt Collection',
-                          style: w300TextStyle(fontSize: 12.sw),
-                        ),
-                      ],
-                    ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Settings'.tr(),
+                        style: w600TextStyle(fontSize: 18.sw),
+                      ),
+                      Gap(2.sw),
+                      Text(
+                        'SKidEnglish',
+                        style: w300TextStyle(fontSize: 12.sw),
+                      ),
+                    ],
                   ),
                 ),
                 IconButton(
@@ -93,120 +81,120 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       ],
                     ),
                   ),
-                  Container(
-                    height: 1,
-                    margin: EdgeInsets.symmetric(vertical: 10.sw),
-                    color: appColorElement,
-                  ),
-                  _WidgetSection(
-                    title: "App Content",
-                    child: Column(
-                      children: [
-                        _WidgetButton(
-                          asset: 'chart-line',
-                          title: "Period sort".tr(),
-                          child: Column(
-                              children: ['Week', 'Month', 'Year']
-                                  .map(
-                                    (e) => _WidgetButtonCheck(
-                                      title: 'By ${e.toLowerCase()}'.tr(),
-                                      onTap: () {
-                                        appHaptic();
-                                        AppPrefs.instance.period = e;
-                                        setState(() {});
-                                      },
-                                      isSelected: AppPrefs.instance.period == e,
-                                    ),
-                                  )
-                                  .toList()),
-                        ),
-                        _WidgetButton(
-                          asset: 'tag',
-                          title: "Tag favorite".tr(),
-                          child: Column(
-                            children: modelCubit.state.tags!
-                                .map((e) => _WidgetButtonCheck(
-                                      title: e.name?.capitalizeFirst ?? "",
-                                      onTap: () {
-                                        appHaptic();
-                                        if (AppPrefs.instance.tag == e.name) {
-                                          AppPrefs.instance.tag = null;
-                                        } else {
-                                          AppPrefs.instance.tag = e.name;
-                                        }
-                                        modelCubit.state.models = [];
-                                        setState(() {});
-                                      },
-                                      isSelected:
-                                          AppPrefs.instance.tag == e.name,
-                                    ))
-                                .toList(),
-                          ),
-                        ),
-                        if (AppPrefs.instance.enableNsfw)
-                          _WidgetButton(
-                            asset: 'chart-donut',
-                            title: "Not Safe For Work".tr(),
-                            child: Column(
-                              children: ['None', 'Soft', 'Mature', 'X']
-                                  .map(
-                                    (e) => _WidgetButtonCheck(
-                                      title: e,
-                                      onTap: () async {
-                                        appHaptic();
-                                        if (e != 'None') {
-                                          var r = await nsfwWarningDialog();
-                                          if (r != true) return;
-                                        }
-                                        modelCubit.state.models = [];
-                                        AppPrefs.instance.nsfw = e;
-                                        setState(() {});
-                                      },
-                                      isSelected: AppPrefs.instance.nsfw == e,
-                                    ),
-                                  )
-                                  .toList(),
-                            ),
-                          ),
-                        _WidgetButton(
-                          asset: 'info-square',
-                          title: "Show meta pormpt image".tr(),
-                          rightAction: WidgetAppSwitcher(
-                            value: AppPrefs.instance.enablePormpt,
-                            onToggle: (value) {
-                              appHaptic();
-                              setState(() {
-                                AppPrefs.instance.enablePormpt = value;
-                              });
-                            },
-                          ),
-                        ),
-                        if (AppPrefs.instance.enableNsfw)
-                          _WidgetButton(
-                            asset: 'fade',
-                            title: "Blur nsfw content".tr(),
-                            rightAction: WidgetAppSwitcher(
-                              value: AppPrefs.instance.blurNsfwImage,
-                              onToggle: (value) {
-                                appHaptic();
-                                setState(() {
-                                  AppPrefs.instance.blurNsfwImage = value;
-                                });
-                              },
-                            ),
-                          ),
-                        _WidgetButton(
-                          onTap: () {
-                            appHaptic();
-                            context.push('/hidden_content');
-                          },
-                          asset: 'eye-off',
-                          title: "Manage hidden content".tr(),
-                        ),
-                        
-                      ],
-                    ),
-                  ),
+                  // Container(
+                  //   height: 1,
+                  //   margin: EdgeInsets.symmetric(vertical: 10.sw),
+                  //   color: appColorElement,
+                  // ),
+                  // _WidgetSection(
+                  //   title: "App Content",
+                  //   child: Column(
+                  //     children: [
+                  //       _WidgetButton(
+                  //         asset: 'chart-line',
+                  //         title: "Period sort".tr(),
+                  //         child: Column(
+                  //             children: ['Week', 'Month', 'Year']
+                  //                 .map(
+                  //                   (e) => _WidgetButtonCheck(
+                  //                     title: 'By ${e.toLowerCase()}'.tr(),
+                  //                     onTap: () {
+                  //                       appHaptic();
+                  //                       AppPrefs.instance.period = e;
+                  //                       setState(() {});
+                  //                     },
+                  //                     isSelected: AppPrefs.instance.period == e,
+                  //                   ),
+                  //                 )
+                  //                 .toList()),
+                  //       ),
+                  //       _WidgetButton(
+                  //         asset: 'tag',
+                  //         title: "Tag favorite".tr(),
+                  //         child: Column(
+                  //           children: modelCubit.state.tags!
+                  //               .map((e) => _WidgetButtonCheck(
+                  //                     title: e.name?.capitalizeFirst ?? "",
+                  //                     onTap: () {
+                  //                       appHaptic();
+                  //                       if (AppPrefs.instance.tag == e.name) {
+                  //                         AppPrefs.instance.tag = null;
+                  //                       } else {
+                  //                         AppPrefs.instance.tag = e.name;
+                  //                       }
+                  //                       modelCubit.state.models = [];
+                  //                       setState(() {});
+                  //                     },
+                  //                     isSelected:
+                  //                         AppPrefs.instance.tag == e.name,
+                  //                   ))
+                  //               .toList(),
+                  //         ),
+                  //       ),
+                  //       if (AppPrefs.instance.enableNsfw)
+                  //         _WidgetButton(
+                  //           asset: 'chart-donut',
+                  //           title: "Not Safe For Work".tr(),
+                  //           child: Column(
+                  //             children: ['None', 'Soft', 'Mature', 'X']
+                  //                 .map(
+                  //                   (e) => _WidgetButtonCheck(
+                  //                     title: e,
+                  //                     onTap: () async {
+                  //                       appHaptic();
+                  //                       if (e != 'None') {
+                  //                         var r = await nsfwWarningDialog();
+                  //                         if (r != true) return;
+                  //                       }
+                  //                       modelCubit.state.models = [];
+                  //                       AppPrefs.instance.nsfw = e;
+                  //                       setState(() {});
+                  //                     },
+                  //                     isSelected: AppPrefs.instance.nsfw == e,
+                  //                   ),
+                  //                 )
+                  //                 .toList(),
+                  //           ),
+                  //         ),
+                  //       _WidgetButton(
+                  //         asset: 'info-square',
+                  //         title: "Show meta pormpt image".tr(),
+                  //         rightAction: WidgetAppSwitcher(
+                  //           value: AppPrefs.instance.enablePormpt,
+                  //           onToggle: (value) {
+                  //             appHaptic();
+                  //             setState(() {
+                  //               AppPrefs.instance.enablePormpt = value;
+                  //             });
+                  //           },
+                  //         ),
+                  //       ),
+                  //       if (AppPrefs.instance.enableNsfw)
+                  //         _WidgetButton(
+                  //           asset: 'fade',
+                  //           title: "Blur nsfw content".tr(),
+                  //           rightAction: WidgetAppSwitcher(
+                  //             value: AppPrefs.instance.blurNsfwImage,
+                  //             onToggle: (value) {
+                  //               appHaptic();
+                  //               setState(() {
+                  //                 AppPrefs.instance.blurNsfwImage = value;
+                  //               });
+                  //             },
+                  //           ),
+                  //         ),
+                  //       _WidgetButton(
+                  //         onTap: () {
+                  //           appHaptic();
+                  //           context.push('/hidden_content');
+                  //         },
+                  //         asset: 'eye-off',
+                  //         title: "Manage hidden content".tr(),
+                  //       ),
+
+                  //     ],
+                  //   ),
+                  // ),
                   Container(
                     height: 1,
                     margin: EdgeInsets.symmetric(
@@ -215,14 +203,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                   Column(
                     children: [
-                       
                       _WidgetButton(
                         asset: 'external-link',
                         title: "Privacy terms".tr(),
                         onTap: () {
                           appHaptic();
                           launchUrlString(
-                              "https://mminhlequang.github.io/privacy-policy/dream_art_ai.html");
+                              "https://mminhlequang.github.io/privacy-policy/app.html");
                         },
                       ),
                       _WidgetButton(
@@ -231,7 +218,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         onTap: () {
                           appHaptic();
                           launchUrlString(
-                              "mailto:mminh.lequang+privacy-policy@gmail.com?subject=Need help in app DreamArtAI");
+                              "mailto:mminh.lequang+privacy-policy@gmail.com?subject=Need help in app");
                         },
                       )
                     ],

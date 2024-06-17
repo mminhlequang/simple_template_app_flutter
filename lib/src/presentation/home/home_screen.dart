@@ -1,12 +1,5 @@
-import 'dart:async';
-import 'dart:io';
-
 import 'package:app/src/constants/constants.dart';
-import 'package:app/src/presentation/home/widgets/best_collection.dart';
 import 'package:app/src/utils/utils.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:gap/gap.dart';
 import 'package:internal_core/internal_core.dart';
 import 'package:flutter/material.dart';
@@ -14,10 +7,6 @@ import 'package:flutter/material.dart';
 import '../explore/explore_screen.dart';
 import '../favorites/favorites_screen.dart';
 import '../settings/settings_screen.dart';
-import 'cubit/favorite_cubit.dart';
-import 'cubit/favorite_model_cubit.dart';
-import 'cubit/model_cubit.dart';
-import 'cubit/report_cubit.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -28,17 +17,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int indexSelected = 0;
-  @override
-  void initState() {
-    super.initState();
-    modelCubit.fetchTags();
-    reportCubit.fetchReports();
-    favoriteCubit.fetchFavorites();
-    favoriteModelCubit.fetchFavorites();
-    modelCubit.fetchModels(refresh: true);
-    
-  }
- 
 
   // Future<void> showCustomTrackingDialog() async =>
   //     await showCupertinoDialog<void>(
@@ -85,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
           body: AnimatedSwitcher(
             duration: const Duration(milliseconds: 200),
             child: [
-              const WidgetBestCollection(),
+              // const WidgetBestCollection(),
               const ExploreScreen(),
               const FavoritesScreen(),
               const SettingsScreen()
@@ -110,11 +88,11 @@ class _WidgetBottomNavBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           const SizedBox(),
-          _buildItem("livephoto", "Home", 0),
-          if (AppPrefs.instance.enableNsfw || !Platform.isAndroid || kDebugMode)
-            _buildItem("layout", "Explore", 1),
-          _buildItem("like", "Favorite", 2),
-          _buildItem("settings", "Setting", 3),
+          // _buildItem("livephoto", "Home", 0),
+          // if (AppPrefs.instance.enableNsfw || !Platform.isAndroid || kDebugMode)
+          _buildItem("layout", "Explore", 0),
+          _buildItem("like", "Favorite", 1),
+          _buildItem("settings", "Setting", 2),
           const SizedBox(),
         ],
       );

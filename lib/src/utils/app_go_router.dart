@@ -4,9 +4,7 @@ import 'package:app/src/presentation/explore/widgets/widget_images_by_model.dart
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../network_resources/civitai/model/model.dart';
 import '../presentation/home/home_screen.dart';
-import '../presentation/settings/widgets/widget_hidden_content.dart';
 import 'app_get.dart';
 
 GlobalKey<NavigatorState> get appNavigatorKey =>
@@ -35,24 +33,7 @@ final goRouter = GoRouter(
       builder: (context, state) => const HomeScreen(),
       routes: [
           
-        GoRoute(
-          name: 'image_by_model',
-          path: 'image_by_model',
-          pageBuilder: (context, state) => buildPageWithDefaultTransition(
-            context: context,
-            state: state,
-            child: const WidgetImagesByModel(),
-          ),
-        ),
-        GoRoute(
-          name: 'hidden_content',
-          path: 'hidden_content',
-          pageBuilder: (context, state) => buildPageWithDefaultTransition(
-            context: context,
-            state: state,
-            child: const WidgetHiddenContent(),
-          ),
-        ),
+        // GoRo]\         
       ],
     ),
   ],
